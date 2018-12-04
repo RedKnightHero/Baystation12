@@ -1,4 +1,4 @@
-/mob/living/carbon/human/examine(mob/user)
+/mob/living/carbon/human/examine(mob/user, show_look_message)
 	var/skipgloves = 0
 	var/skipsuitstorage = 0
 	var/skipjumpsuit = 0
@@ -8,7 +8,7 @@
 	var/skipeyes = 0
 	var/skipface = 0
 
-	if(!isobserver(user))
+	if(show_look_message && !isobserver(user)) // necessary check in case the eyes of the beholder are hidden
 		user.visible_message("<span class='notice'><font size=1><i>[user] looks at [src].</i></font></span>")
 
 	//exosuits and helmets obscure our view and stuff.
@@ -343,7 +343,7 @@
 			pose = addtext(pose,".") //Makes sure all emotes end with a period.
 		msg += "[T.He] [pose]\n"
 
-	var/show_descs = show_descriptors_to(user)
+	var/show_descs = show_descriptors_to(user, T)
 	if(show_descs)
 		msg += "<span class='notice'>[jointext(show_descs, "<br>")]</span>"
 	to_chat(user, jointext(msg, null))

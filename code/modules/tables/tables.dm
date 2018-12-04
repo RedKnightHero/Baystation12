@@ -26,6 +26,24 @@
 
 	connections = list("nw0", "ne0", "sw0", "se0")
 
+/mob/living/Move()
+	. = ..()
+	on_table_offset()
+
+/mob/living/forceMove()
+	. = ..()
+	on_table_offset()
+
+/mob/living/proc/on_table_offset()
+	var/obj/structure/table/T = (locate() in get_turf(src))
+	var/check = initial(default_pixel_y) + 12
+	if(T && !T.flipped)
+		if(!(pixel_y == check))
+			animate(src, pixel_y = initial(default_pixel_y) + 12, time = 2, easing = SINE_EASING)
+	else
+		if(check && pixel_y != initial(default_pixel_y))
+			animate(src, pixel_y = initial(default_pixel_y), time = 2, easing = SINE_EASING)
+
 /obj/structure/table/New()
 	if(istext(material))
 		material = SSmaterials.get_material_by_name(material)
@@ -45,7 +63,7 @@
 
 	health += maxhealth - old_maxhealth
 
-/obj/structure/table/proc/take_damage(amount)
+/obj/structure/table/take_damage(amount)
 	// If the table is made of a brittle material, and is *not* reinforced with a non-brittle material, damage is multiplied by TABLE_BRITTLE_MATERIAL_MULTIPLIER
 	if(material && material.is_brittle())
 		if(reinforced)

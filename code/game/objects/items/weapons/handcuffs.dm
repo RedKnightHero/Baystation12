@@ -34,7 +34,7 @@
 	if(!user.IsAdvancedToolUser())
 		return
 
-	if ((CLUMSY in user.mutations) && prob(50))
+	if ((MUTATION_CLUMSY in user.mutations) && prob(50))
 		to_chat(user, "<span class='warning'>Uh ... how do those things work?!</span>")
 		place_handcuffs(user, user)
 		return
@@ -173,6 +173,9 @@ var/last_chew = 0
 			update_icon(user)
 
 /obj/item/weapon/handcuffs/cyborg
+	dispenser = 1
+
+/obj/item/weapon/handcuffs/cable/cyborg
 	dispenser = 1
 
 /obj/item/weapon/handcuffs/cable/tape

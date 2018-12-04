@@ -44,6 +44,11 @@
 ##
 #	PMP HERE
 {
+ckey: sallyvadordomold
+character_name: Sally Kimberly
+item_path: /obj/item/device/pmp/personal/csplayer
+}
+{
 ckey: billluxe
 character_name: Villyx
 item_path: /obj/item/device/pmp/personal
@@ -104,6 +109,11 @@ character_name: Miguel Blackburn
 item_path: /obj/item/device/pmp/personal
 }
 {
+ckey: coltrane97
+character_name: Iris Bickerson
+item_path: /obj/item/device/pmp/personal
+}
+{
 ckey: Ka6a4ok
 character_name: Mike Sound
 item_path: /obj/item/device/pmp/personal
@@ -128,14 +138,19 @@ ckey: deda565
 character_name: Wayne Hutton
 item_path: /obj/item/device/pmp/personal
 }
+{
+ckey: unbidden
+character_name: Milo Moon
+item_path: /obj/item/device/pmp/personal
+}
+{
+ckey: forrya
+character_name: Niyarkszherch Kchrashchjrj
+item_path: /obj/item/device/pmp/personal/csplayer
+}
 
 #	SHORT ITEMS HERE (3-4)
 
-{
-ckey: quietproject 
-character_name: Arias Creo 
-item_path: /obj/item/clothing/mask/gas/creo
-}
 {
 ckey: zakterar
 character_name: Maria Salazar
@@ -221,7 +236,7 @@ item_path: /obj/item/device/synthesized_instrument/guitar/multi/eguitar
 {
 ckey: kosteg
 character_name: Emilia Florian
-item_path: /obj/item/weapon/storage/briefcase/kosteg
+item_path: /obj/item/weapon/clothingbag/zone
 }
 {
 ckey: courierr
@@ -248,12 +263,63 @@ ckey: wolforbykot
 character_name: Toni Roar
 item_path: /obj/item/clothing/suit/storage/army_overcoat
 }
-
+{
+ckey: hodovoy
+character_name: Nirvana Kurt
+item_path: /obj/item/device/synthesized_instrument/guitar/multi
+}
 {
 ckey: adenwais
 character_name: Monte Powers
-item_path: obj/item/weapon/flame/lighter/zippo/infinity/cust_zippo
+item_path: /obj/item/weapon/flame/lighter/zippo/infinity/cust_zippo
 }
+{
+ckey: m1am1
+character_name: Edward Paige
+item_path: /obj/item/modular_computer/wrist/advanced
+}
+{
+ckey: quietproject 
+character_name: Arias Creo 
+item_path: /obj/item/clothing/mask/gas/creo
+}
+{
+ckey: chowny
+character_name: Jesse Henkel
+item_path: /obj/item/custkit/chowny_void
+}
+{
+ckey: chowny
+character_name: Jesse Henkel
+item_path: /obj/item/custkit/chowny_helmet
+}
+{
+ckey: kosteg
+character_name: Medea Heldane
+item_path: /obj/item/custkit/kosteg_void
+}
+{
+ckey: kosteg
+character_name: Medea Heldane
+item_path: /obj/item/custkit/kosteg_helmet
+}
+{
+ckey: jackaltabaqui
+character_name: Daniel Darkwood
+item_path: /obj/item/clothing/head/kitty/fake
+}
+{
+ckey: s1334
+character_name: Essah Reiihoz
+item_path: /obj/item/device/synthesized_instrument/guitar/multi
+}
+{
+ckey: logfol
+character_name: Alias Victus
+item_path: /obj/item/clothing/head/beret/centcom/officer
+item_desc: A navy blue beret adorned with the named "Grom" crest of corporate asset protection. For asset protection agents that are more inclined towards style than safety.
+}
+
 #	MEDIUM ITEMS HERE (5-6)
 
 {
@@ -350,13 +416,16 @@ item_desc: It's a rainbow bracelet. Looks pretty good and stylish, special for g
 item_icon: rainbow_bracelet
 }
 {
-ckey: logfol
-character_name: Alias Victus
-item_path: /obj/item/clothing/head/beret/centcom/officer
-item_desc: A navy blue beret adorned with the named "Grom" crest of corporate asset protection. For asset protection agents that are more inclined towards style than safety.
+ckey: thehero13
+character_name: Jonn Corsac
+item_path: /obj/item/weapon/material/kitchen/utensil/knife/boot
+item_name: karambit
+item_desc: A small curved knife.
+item_icon: karambit2
 }
 
 #	LONG ITEMS HERE (+7)
+
 {
 ckey: arhod
 character_name: Jason Marhod
@@ -364,7 +433,7 @@ item_path: /obj/item/clothing/accessory/medal/solgov/silver/sword
 item_desc: A silver medal awarded to members of the SCG for honorable service while under enemy fire. No: 48181
 req_titles: Warden
 req_access: 2
-paper_info: [center]Центральное Правительство Солнечной Системы[/center][solcrest][br]Данным сертификатом подтверждается награждение Джейсона Мархода медалью "Участник Боевых Действии" за нейтрализацию противника в опасных условиях.[br]Подпись: [sign]Oliver Stocker[/sign]
+paper_info: [center]Г–ГҐГ­ГІГ°Г Г«ГјГ­Г®ГҐ ГЏГ°Г ГўГЁГІГҐГ«ГјГ±ГІГўГ® Г‘Г®Г«Г­ГҐГ·Г­Г®Г© Г‘ГЁГ±ГІГҐГ¬Г»[/center][solcrest][br]Г„Г Г­Г­Г»Г¬ Г±ГҐГ°ГІГЁГґГЁГЄГ ГІГ®Г¬ ГЇГ®Г¤ГІГўГҐГ°Г¦Г¤Г ГҐГІГ±Гї Г­Г ГЈГ°Г Г¦Г¤ГҐГ­ГЁГҐ Г„Г¦ГҐГ©Г±Г®Г­Г  ГЊГ Г°ГµГ®Г¤Г  Г¬ГҐГ¤Г Г«ГјГѕ "Г“Г·Г Г±ГІГ­ГЁГЄ ГЃГ®ГҐГўГ»Гµ Г„ГҐГ©Г±ГІГўГЁГЁ" Г§Г  Г­ГҐГ©ГІГ°Г Г«ГЁГ§Г Г¶ГЁГѕ ГЇГ°Г®ГІГЁГўГ­ГЁГЄГ  Гў Г®ГЇГ Г±Г­Г»Гµ ГіГ±Г«Г®ГўГЁГїГµ.[br]ГЏГ®Г¤ГЇГЁГ±Гј: [sign]Oliver Stocker[/sign]
 paper_title: award certificate
 paper_stamp_type: /obj/item/weapon/stamp/solgov
 }

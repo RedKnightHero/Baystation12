@@ -493,6 +493,42 @@ other types of metals and chemistry for reagents).
 	build_path = /obj/item/weapon/scalpel/manager
 	sort_string = "MBEAD"
 
+/datum/design/item/surgery/pico_grasper
+	name = "Precision Grasper"
+	desc = "A thin rod with pico manipulators embedded in it allowing for fast and precise extraction."
+	id = "pico_grasper"
+	req_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 3, TECH_BIO = 4)
+	materials = list (DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000, "phoron" = 80)
+	build_path = /obj/item/weapon/hemostat/pico
+	sort_string = "MBEAE"
+
+/datum/design/item/surgery/plasmasaw
+	name = "Plasma Saw"
+	desc = "Perfect for cutting through ice."
+	id = "plasmasaw"
+	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_BIO = 5, TECH_PHORON = 3)
+	materials = list (DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000, "phoron" = 500)
+	build_path = /obj/item/weapon/circular_saw/plasmasaw
+	sort_string = "MBEAF"
+
+/datum/design/item/surgery/bonemender
+	name = "Bone Mender"
+	desc = "A favorite among skeletons. It even sounds like a skeleton too."
+	id = "bonemender"
+	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_BIO = 5)
+	materials = list (DEFAULT_WALL_MATERIAL = 10000, "glass" = 5000, "gold" = 500, "silver" = 250)
+	build_path = /obj/item/weapon/bonesetter/bone_mender
+	sort_string = "MBEAG"
+
+/datum/design/item/surgery/clot
+	name = "Capillary Laying Operation Tool"
+	desc = "A canister like tool that stores synthetic vein."
+	id = "clot"
+	req_tech = list(TECH_MATERIAL = 5, TECH_ENGINEERING = 4, TECH_BIO = 5)
+	materials = list (DEFAULT_WALL_MATERIAL = 10000, "glass" = 8000, "silver" = 1000)
+	build_path = /obj/item/weapon/FixOVein/clot
+	sort_string = "MBEAH"
+
 /datum/design/item/beaker/AssembleDesignName()
 	name = "Beaker prototype ([item_name])"
 
@@ -2079,6 +2115,27 @@ CIRCUITS BELOW
 	req_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	build_path = /obj/item/weapon/circuitboard/miningdrillbrace
 	sort_string = "KCAAB"
+
+/datum/design/circuit/bsafront
+	name = "bluespace particle beam generator mark VI."
+	id = "bsafront"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_COMBAT = 2, TECH_BLUESPACE = 2)
+	build_path = /obj/item/weapon/circuitboard/bsafront
+	sort_string = "KCAAC"
+
+/datum/design/circuit/bsamiddle
+	name = "bluespace fusor mark VI."
+	id = "bsamiddle"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_COMBAT = 2, TECH_BLUESPACE = 2)
+	build_path = /obj/item/weapon/circuitboard/bsamiddle
+	sort_string = "KCAAD"
+
+/datum/design/circuit/bsaback
+	name = "bluespace material deconstructor mark VI."
+	id = "bsaback"
+	req_tech = list(TECH_ENGINEERING = 2, TECH_COMBAT = 2, TECH_BLUESPACE = 2)
+	build_path = /obj/item/weapon/circuitboard/bsaback
+	sort_string = "KCAAE"
 
 /datum/design/circuit/mecha
 	req_tech = list(TECH_DATA = 3)

@@ -47,7 +47,7 @@
 	else
 		ae = electronics
 		electronics = null
-		ae.loc = src.loc
+		ae.dropInto(loc)
 	if(operating == -1)
 		ae.icon_state = "door_electronics_smoked"
 		operating = 0
@@ -179,7 +179,9 @@
 	..()
 
 /obj/machinery/door/window/CanFluidPass(var/coming_from)
-	return ((dir in GLOB.cardinal) && coming_from != dir)
+	if(density)
+		return ((dir in GLOB.cardinal) && coming_from != dir)
+	else return 1
 
 /obj/machinery/door/window/attackby(obj/item/weapon/I as obj, mob/user as mob)
 
@@ -230,7 +232,7 @@
 			else
 				ae = electronics
 				electronics = null
-				ae.loc = src.loc
+				ae.dropInto(loc)
 			ae.icon_state = "door_electronics_smoked"
 
 			operating = 0

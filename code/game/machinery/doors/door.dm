@@ -1,6 +1,10 @@
 //This file was auto-corrected by findeclaration.exe on 25.5.2012 20:42:31
 #define DOOR_REPAIR_AMOUNT 50	//amount of health regained per stack amount used
 
+//A = thing to open, B = how long until opening, C = if the opening is forced.
+#define OPEN_IN(A, B, C) addtimer(CALLBACK(A, /obj/machinery/door/proc/open, C), B)
+#define CLOSE_IN(A, B, C) addtimer(CALLBACK(A, /obj/machinery/door/proc/close, C), B)
+
 /obj/machinery/door
 	name = "Door"
 	desc = "It opens and closes."
@@ -233,7 +237,7 @@
 		else
 			repairing = stack.split(amount_needed, force=TRUE)
 			if (repairing)
-				repairing.loc = src
+				repairing.dropInto(loc)
 				transfer = repairing.amount
 				repairing.uses_charge = FALSE //for clean robot door repair - stacks hint immortal if true
 
@@ -262,7 +266,7 @@
 	if(repairing && isCrowbar(I))
 		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
 		playsound(src.loc, 'sound/items/Crowbar.ogg', 100, 1)
-		repairing.loc = user.loc
+		repairing.dropInto(user.loc)
 		repairing = null
 		return
 

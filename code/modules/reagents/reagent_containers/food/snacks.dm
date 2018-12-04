@@ -456,6 +456,24 @@
 	reagents.add_reagent(/datum/reagent/nutriment/protein, 12)
 	reagents.add_reagent(/datum/reagent/hyperzine, 5)
 
+/obj/item/weapon/reagent_containers/food/snacks/spider
+	name = "giant spider leg"
+	desc = "An economical replacement for crab. In space! Would probably be a lot nicer cooked."
+	icon_state = "spiderleg"
+	filling_color = "#d5f5dc"
+	center_of_mass = "x=16;y=10"
+	bitesize = 3
+
+/obj/item/weapon/reagent_containers/food/snacks/spider/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 9)
+
+/obj/item/weapon/reagent_containers/food/snacks/spider/cooked
+	name = "boiled spider meat"
+	desc = "An economical replacement for crab. In space!"
+	icon_state = "spiderleg_c"
+	bitesize = 5
+
 /obj/item/weapon/reagent_containers/food/snacks/xenomeat
 	name = "meat"
 	desc = "A slab of green meat. Smells like acid."
@@ -1982,7 +2000,7 @@
 			var/reagent_amount = whole.reagents.total_volume/whole.slices_num
 			whole.reagents.trans_to_obj(src, reagent_amount)
 
-		Destroy(whole)
+		qdel(whole)
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/meatbread
 	name = "meatbread loaf"
@@ -2108,19 +2126,6 @@
 	.=..()
 	reagents.add_reagent(/datum/reagent/imidazoline, 10)
 
-/obj/item/weapon/reagent_containers/food/snacks/slice/carrotcake
-	name = "carrot cake slice"
-	desc = "Carrotty slice of carrot cake, carrots are good for your eyes! Also not a lie."
-	icon_state = "carrotcake_slice"
-	trash = /obj/item/trash/plate
-	filling_color = "#ffd675"
-	bitesize = 2
-	center_of_mass = "x=16;y=14"
-	whole_path = /obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake
-
-/obj/item/weapon/reagent_containers/food/snacks/slice/carrotcake/filled
-	filled = TRUE
-
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
 	name = "brain cake"
 	desc = "A squishy cake-thing."
@@ -2148,6 +2153,19 @@
 	whole_path = /obj/item/weapon/reagent_containers/food/snacks/sliceable/braincake
 
 /obj/item/weapon/reagent_containers/food/snacks/slice/braincake/filled
+	filled = TRUE
+
+/obj/item/weapon/reagent_containers/food/snacks/slice/carrotcake
+	name = "carrot cake slice"
+	desc = "Carrotty slice of carrot cake, carrots are good for your eyes! Also not a lie."
+	icon_state = "carrotcake_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#ffd675"
+	bitesize = 2
+	center_of_mass = "x=16;y=14"
+	whole_path = /obj/item/weapon/reagent_containers/food/snacks/sliceable/carrotcake
+
+/obj/item/weapon/reagent_containers/food/snacks/slice/carrotcake/filled
 	filled = TRUE
 
 /obj/item/weapon/reagent_containers/food/snacks/sliceable/cheesecake
@@ -2467,6 +2485,7 @@
 	filling_color = "#f5deb8"
 	center_of_mass = "x=17;y=6"
 	nutriment_desc = list("salt" = 1, "cracker" = 2)
+	w_class = ITEM_SIZE_TINY
 	nutriment_amt = 1
 
 /////////////////////////////////////////////////PIZZA////////////////////////////////////////
@@ -2597,7 +2616,7 @@
 
 /obj/item/pizzabox/on_update_icon()
 
-	overlays = list()
+	overlays.Cut()
 
 	// Set appropriate description
 	if( open && pizza )
@@ -3186,6 +3205,17 @@
 /obj/item/weapon/reagent_containers/food/snacks/liquidfood/Initialize()
 	.=..()
 	reagents.add_reagent(/datum/reagent/iron, 3)
+
+/obj/item/weapon/reagent_containers/food/snacks/meatcube
+	name = "cubed meat"
+	desc = "Fried, salted lean meat compressed into a cube. Not very appetizing."
+	icon_state = "meatcube"
+	filling_color = "#7a3d11"
+	center_of_mass = "x=16;y=16"
+	bitesize = 3
+/obj/item/weapon/reagent_containers/food/snacks/meatcube/Initialize()
+	.=..()
+	reagents.add_reagent(/datum/reagent/nutriment/protein, 15)
 
 /obj/item/weapon/reagent_containers/food/snacks/tastybread
 	name = "bread tube"

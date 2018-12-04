@@ -22,7 +22,7 @@ SUBSYSTEM_DEF(ticker)
 	var/delay_notified = 0          //Spam prevention.
 	var/restart_timeout = 1 MINUTE
 
-	var/admin_ending = 0 //Are you badmin or developer?
+	var/force_ending = 0            //Overriding this variable will force game end. Can be used for build update or adminbuse.
 
 	var/list/minds = list()         //Minds of everyone in the game.
 	var/list/antag_pool = list()
@@ -60,7 +60,7 @@ SUBSYSTEM_DEF(ticker)
 		if(CHOOSE_GAMEMODE_SILENT_REDO)
 			return
 		if(CHOOSE_GAMEMODE_RETRY)
-			pregame_timeleft = 15 SECONDS
+			pregame_timeleft = 60 SECONDS
 			Master.SetRunLevel(RUNLEVEL_LOBBY)
 			to_world("<B>Unable to choose playable game mode.</B> Reverting to pre-game lobby to try again.")
 			return
@@ -113,7 +113,7 @@ SUBSYSTEM_DEF(ticker)
 	mode.process()
 	var/mode_finished = mode_finished()
 
-	if(mode_finished && game_finished() || admin_ending)
+	if(mode_finished && game_finished())
 		if(!config.ooc_allowed)
 			config.ooc_allowed = 1
 			to_world("<B>The OOC channel has been globally enabled!</B>")
@@ -222,9 +222,9 @@ Helpers
 
 	//Decide on the mode to try.
 	if(!bypass_gamemode_vote && gamemode_vote_results)
+		gamemode_vote_results -= bad_modes
 		if(length(gamemode_vote_results))
 			mode_to_try = gamemode_vote_results[1]
-			gamemode_vote_results.Cut(1,2)
 			. = CHOOSE_GAMEMODE_RETRY //Worth it to try again at least once.
 		else
 			mode_to_try = "extended"
@@ -355,12 +355,14 @@ Helpers
 	return 0
 
 /datum/controller/subsystem/ticker/proc/game_finished()
+	if(force_ending)
+		return 1
 	if(mode.explosion_in_progress)
 		return 0
 	if(config.continous_rounds)
 		return evacuation_controller.round_over() || mode.station_was_nuked
 	else
-		return mode.check_finished() || (evacuation_controller.round_over() && evacuation_controller.emergency_evacuation) || universe_has_ended
+		return mode.check_finished() || evacuation_controller.round_over() || universe_has_ended // && evacuation_controller.emergency_evacuation - since transfer shuttle don't really use this variable, it don't allow end round
 
 /datum/controller/subsystem/ticker/proc/mode_finished()
 	if(config.continous_rounds)
